@@ -9,10 +9,13 @@ Argument Reference
 
 The following arguments are supported:
 
-* `name` - (Required) Specifies the friendly name of the new secret.
+* `service` - (Required) The name of the service associated with
+the Shibboleth SP.
+
+* `name` - (Optional) Specifies the friendly name of the new secret.
 The secret name can consist of uppercase letters, lowercase letters,
 digits, and any of the following characters: /_+=.@- Spaces are not
-permitted.
+permitted. Default is ${var.service}-shibd-data-sealer.
 
 * `description` - (Optional) A description of the secret.
 

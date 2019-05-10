@@ -1,5 +1,10 @@
+variable "service" {
+  description = "Name of service"
+}
+
 variable "name" {
   description = "Name of secret"
+  default     = ""
 }
 
 variable "description" {
@@ -30,4 +35,9 @@ variable "tags" {
 variable "automatically_after_days" {
   description = "Number of days between automatic scheduled rotations of the secret"
   default     = 1
+}
+
+variable "lambda_function_name" {
+  description = "The name of the lambda function that Secret Manageer will use for key rotation"
+  default     = "aes128-key-rot"
 }
