@@ -29,6 +29,7 @@ variable "recovery_window_in_days" {
 
 variable "tags" {
   description = "User-defined tags that are attached to the secret"
+  type        = map(string)
   default     = {}
 }
 
