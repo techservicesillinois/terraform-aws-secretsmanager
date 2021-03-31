@@ -20,6 +20,8 @@ The following arguments are supported:
 
 * `runtime` - Lambda runtime (Default python3.8).
 
+* `sealer_key_version_count` - Number of data sealer keys to retain (Default 30).
+
 Attributes Reference
 --------------------
 

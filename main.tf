@@ -13,6 +13,7 @@ resource "aws_lambda_function" "default" {
   environment {
     variables = {
       SECRETS_MANAGER_ENDPOINT = "https://secretsmanager.${data.aws_region.current.name}.amazonaws.com"
+      SEALER_KEY_VERSION_COUNT = var.sealer_key_version_count
     }
   }
 }

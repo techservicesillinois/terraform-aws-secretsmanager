@@ -17,3 +17,8 @@ variable "runtime" {
   description = "Lambda runtime"
   default     = "python3.8"
 }
+
+variable "sealer_key_version_count" {
+  description = "Number of data sealer keys to retain"
+  default     = 30
+}
