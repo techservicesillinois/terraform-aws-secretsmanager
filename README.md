@@ -1,6 +1,6 @@
 # shibd-data-sealer
 
-[![Build Status](https://drone.techservices.illinois.edu/api/badges/techservicesillinois/terraform-aws-shibd-data-sealer/status.svg)](https://drone.techservices.illinois.edu/techservicesillinois/terraform-aws-shibd-data-sealer)
+[![Terraform actions status](https://github.com/techservicesillinois/terraform-aws-shibd-data-sealer/workflows/terraform/badge.svg)](https://github.com/techservicesillinois/terraform-aws-shibd-data-sealer/actions)
 
 Provides a [Secret Manager](https://aws.amazon.com/secrets-manager/)
 secret for use with Shibbleth. The secret provided is a base64 encoded
