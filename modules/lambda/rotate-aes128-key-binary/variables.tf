@@ -15,10 +15,15 @@ variable "policy" {
 
 variable "runtime" {
   description = "Lambda runtime"
-  default     = "python3.8"
 }
 
 variable "sealer_key_version_count" {
   description = "Number of data sealer keys to retain"
-  default     = 30
+  default     = 20
+}
+
+variable "tags" {
+  description = "A mapping of tags to be supplied to resources where supported"
+  type        = map(string)
+  default     = {}
 }
