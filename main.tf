@@ -24,7 +24,10 @@ resource "aws_secretsmanager_secret" "default" {
   policy                  = file(local.policy)
   recovery_window_in_days = var.recovery_window_in_days
   tags                    = var.tags
+}
 
+resource "aws_secretsmanager_secret_rotation" "default" {
+  secret_id           = aws_secretsmanager_secret.default.id
   rotation_lambda_arn = data.aws_lambda_function.selected.arn
 
   rotation_rules {
