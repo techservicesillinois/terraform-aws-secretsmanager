@@ -50,8 +50,6 @@ Attributes Reference
 
 The following attributes are exported:
 
-* `id` - Amazon Resource Name (ARN) of the secret.
-
 * `arn` - Amazon Resource Name (ARN) of the secret.
 
 * `rotation_enabled ` - Specifies whether automatic rotation is

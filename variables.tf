@@ -8,7 +8,7 @@ variable "name" {
 }
 
 variable "description" {
-  description = "A description of the secret"
+  description = "Description of the secret"
   default     = ""
 }
 
@@ -18,7 +18,7 @@ variable "kms_key_id" {
 }
 
 variable "policy" {
-  description = "A filename containing a valid policy document."
+  description = "Filename containing a valid policy document"
   default     = ""
 }
 
@@ -28,7 +28,7 @@ variable "recovery_window_in_days" {
 }
 
 variable "tags" {
-  description = "User-defined tags that are attached to the secret"
+  description = "User-defined tags attached to the secret"
   type        = map(string)
   default     = {}
 }
