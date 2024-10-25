@@ -18,7 +18,7 @@ The following arguments are supported:
 
 * `policy` - Policy name (Default AWSLambdaSecretManager).
 
-* `runtime` - Lambda runtime (Default python3.8).
+* `runtime` - Lambda runtime.
 
 * `sealer_key_version_count` - Number of data sealer keys to retain (Default 30).
 
