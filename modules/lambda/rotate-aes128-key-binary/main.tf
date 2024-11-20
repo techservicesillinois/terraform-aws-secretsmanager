@@ -6,7 +6,7 @@ resource "aws_lambda_function" "default" {
 
   role    = aws_iam_role.default.arn
   runtime = var.runtime
-  tags    = var.tags
+  tags    = merge({ Name = var.name }, var.tags)
 
   filename         = data.archive_file.selected.output_path
   source_code_hash = data.archive_file.selected.output_base64sha256
