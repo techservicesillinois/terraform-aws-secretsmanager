@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "default" {
   function_name = var.name
-  description   = "Generate random AES 128 keys in binary format"
+  description   = "Generate random AES-128 keys in binary form"
   handler       = "lambda.lambda_handler"
   publish       = true
 

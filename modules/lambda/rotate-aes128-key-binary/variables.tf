@@ -1,6 +1,6 @@
 variable "name" {
   description = "Lambda function name"
-  default     = "binary-aes128-key-rot"
+  default     = "rotate-aes128-key-binary"
 }
 
 variable "role" {
@@ -23,7 +23,7 @@ variable "sealer_key_version_count" {
 }
 
 variable "tags" {
-  description = "A mapping of tags to be supplied to resources where supported"
+  description = "A map of tags to be supplied to resources where supported"
   type        = map(string)
   default     = {}
 }
