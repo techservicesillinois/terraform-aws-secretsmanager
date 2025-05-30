@@ -25,8 +25,7 @@ data "aws_iam_policy_document" "default" {
     condition {
       test     = "StringEquals"
       variable = "secretsmanager:resource/AllowRotationLambdaArn"
-
-      values = [aws_lambda_function.default.arn]
+      values   = [aws_lambda_function.default.arn]
     }
 
     actions = [

@@ -9,7 +9,7 @@ variable "policy" {
 }
 
 variable "secrets" {
-  description = "Secrets expressed as a map of maps. Each map's key is its secret name, and the value stored under that key is another map that may contain the following keys: automatically_after_days, description, function_name, and reovery_window_in_days."
+  description = "Secrets expressed as a map of maps. Each map's key is its secret name, and the value stored under that key is another map that may contain the following keys: automatically_after_days, description, function_name, and recovery_window_in_days."
   type = map(
     object({
       # TODO: Support schedule_expression in lieu of automatically_after_days?
@@ -29,7 +29,14 @@ variable "service" {
 
 variable "tags" {
   description = "Tags to be applied to resources where supported"
-
   type    = map(string)
   default = {}
+}
+
+# Debugging.
+
+variable "_debug" {
+  description = "Produce debug output (boolean)"
+  type        = bool
+  default     = false
 }

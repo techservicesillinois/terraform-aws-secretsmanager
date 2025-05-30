@@ -14,7 +14,7 @@ variable "policy" {
 }
 
 variable "runtime" {
-  description = "Lambda runtime"
+  description = "Lambda runtime (e.g., \"python3.12\")."
 }
 
 variable "tags" {

@@ -1,6 +1,6 @@
 variable "name" {
   description = "Lambda function name"
-  default     = "binary-aes128-key-rot"
+  default     = "rotate-aes128-key-binary"
 }
 
 variable "role" {
@@ -14,16 +14,15 @@ variable "policy" {
 }
 
 variable "runtime" {
-  description = "Lambda runtime"
+  description = "Lambda runtime (e.g., \"python3.12\")."
 }
 
 variable "sealer_key_version_count" {
   description = "Number of data sealer keys to retain"
-  default     = 20
 }
 
 variable "tags" {
-  description = "A mapping of tags to be supplied to resources where supported"
+  description = "A map of tags to be supplied to resources where supported"
   type        = map(string)
   default     = {}
 }
