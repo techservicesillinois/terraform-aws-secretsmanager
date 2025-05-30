@@ -15,6 +15,10 @@ resource "aws_secretsmanager_secret" "default" {
 }
 
 locals {
+  # Dictionary of short secret names with corresponding full secret names.
+  secret_data = { for k, v in aws_secretsmanager_secret.default : k => aws_secretsmanager_secret.default[k].name }
+
+  # Dictionary of data from caller for secrets which are configured to rotate.
   rotate_data = { for k, v in aws_secretsmanager_secret.default : k => tomap({ automatically_after_days = var.secrets[k].automatically_after_days, function_name = var.secrets[k].function_name }) if var.secrets[k].automatically_after_days != null && var.secrets[k].function_name != null }
 }
 

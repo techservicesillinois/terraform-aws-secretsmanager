@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "default" {
   function_name = var.name
-  description   = "Generate random AES 128 keys in binary format"
+  description   = "Generate random AES-128 keys in binary form"
   handler       = "lambda.lambda_handler"
   publish       = true
 
@@ -23,8 +23,7 @@ resource "aws_lambda_function" "default" {
 resource "aws_lambda_permission" "allow_secrets_manager" {
   statement_id = "AllowExecutionFromSecretsManager"
 
-  principal = "secretsmanager.amazonaws.com"
-  action    = "lambda:InvokeFunction"
-
+  action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.default.function_name
+  principal     = "secretsmanager.amazonaws.com"
 }
