@@ -16,16 +16,13 @@ Example Usage
 -----------------
 
 ```hcl
-module "public-subnets" {
+module "lambda" {
   source = "git@github.com:techservicesillinois/terraform-aws-secretsmanager//modules/lambda/rotate-aes128-key-binary"
 
-  name               = "rotate-aes128-key-binary"
-  role               = "rotate-aes128-key-binary"
-  policy             = "rotate-aes128-key-binary"
-
+  name                     = "rotate-aes128-key-binary"
   sealer_key_version_count = 21
 
-  # NOTE: This must use a python3 runtime supported by AWS for lambda functions.
+  # NOTE: Runtime *must* be an AWS-supported python3.x version.
   # See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html.
   runtime = "python3.12"
 
@@ -42,9 +39,9 @@ The following arguments are supported:
 
 * `name` - Lambda function name (default is "rotate-aes128-key-binary").
 
-* `role` - Role name (Default AWSLambdaSecretManagerRole).
+* `role` - Role name (default is the same as `name`).
 
-* `policy` - Policy name (Default AWSLambdaSecretManager).
+* `policy` - Policy name (default is the same as `name`).
 
 * `runtime` - Lambda runtime (e.g., "python3.12"). Runtime *must* be Python 3.x.
 
