@@ -1,5 +1,5 @@
 resource "aws_iam_role" "default" {
-  name               = var.role
+  name               = (var.role != null) ? var.role : var.name
   assume_role_policy = data.aws_iam_policy_document.lambda.json
 }
 
@@ -14,7 +14,7 @@ resource "aws_iam_role_policy_attachment" "default" {
 }
 
 resource "aws_iam_policy" "default" {
-  name   = var.policy
+  name   = (var.policy != null) ? var.policy : var.name
   path   = "/"
   policy = data.aws_iam_policy_document.default.json
 }

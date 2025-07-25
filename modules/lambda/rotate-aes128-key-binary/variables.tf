@@ -3,14 +3,14 @@ variable "name" {
   default     = "rotate-aes128-key-binary"
 }
 
-variable "role" {
-  description = "Role name"
-  default     = "AWSLambdaSecretManagerRole"
-}
-
 variable "policy" {
   description = "Policy name"
-  default     = "AWSLambdaSecretManager"
+  default     = null
+}
+
+variable "role" {
+  description = "Role name"
+  default     = null
 }
 
 variable "runtime" {
