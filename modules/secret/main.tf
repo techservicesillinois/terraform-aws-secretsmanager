@@ -12,6 +12,9 @@ resource "aws_secretsmanager_secret" "default" {
   recovery_window_in_days = each.value.recovery_window_in_days
   tags                    = merge({ "Name" = each.key }, var.tags)
 
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 locals {
