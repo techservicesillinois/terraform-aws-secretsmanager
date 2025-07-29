@@ -29,8 +29,8 @@ variable "service" {
 
 variable "tags" {
   description = "Tags to be applied to resources where supported"
-  type    = map(string)
-  default = {}
+  type        = map(string)
+  default     = {}
 }
 
 # Debugging.
