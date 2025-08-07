@@ -26,3 +26,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "timeout" {
+  description = "Lambda function timeout"
+  default     = null
+}

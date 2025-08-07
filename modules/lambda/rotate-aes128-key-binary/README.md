@@ -37,17 +37,19 @@ Argument Reference
 
 The following arguments are supported:
 
-* `name` - Lambda function name (default is "rotate-aes128-key-binary").
+* `name` - (Optional) Lambda function name (default is "rotate-aes128-key-binary").
 
-* `role` - Role name (default is the same as `name`).
+* `role` - (Optional) Role name (default is the same as `name`).
 
-* `policy` - Policy name (default is the same as `name`).
+* `policy` - (Optional) Policy name (default is the same as `name`).
 
-* `runtime` - Lambda runtime (e.g., "python3.12"). Runtime *must* be Python 3.x.
+* `runtime` - (Required) Lambda runtime (e.g., "python3.12"). Runtime *must* be Python 3.x.
 
-* `sealer_key_version_count` - Number of data sealer keys to retain.
+* `sealer_key_version_count` - (Required) Number of data sealer keys to retain.
 
-* `tags` - A map of tags to be supplied to resources where supported.
+* `tags` - (Optional) A map of tags to be supplied to resources where supported.
+
+* `timeout` - (Optional) Lambda function timeout.
 
 Attributes Reference
 --------------------
