@@ -37,11 +37,9 @@ Argument Reference
 
 The following arguments are supported:
 
+* `logging_config` - (Optional) A [`logging_config`](#logging_config) block containing advanced logging settings.
+
 * `name` - (Optional) Lambda function name (default is "rotate-aes128-key-binary").
-
-* `role` - (Optional) Role name (default is the same as `name`).
-
-* `policy` - (Optional) Policy name (default is the same as `name`).
 
 * `runtime` - (Required) Lambda runtime (e.g., "python3.12"). Runtime *must* be Python 3.x.
 
@@ -50,6 +48,18 @@ The following arguments are supported:
 * `tags` - (Optional) A map of tags to be supplied to resources where supported.
 
 * `timeout` - (Optional) Lambda function timeout.
+
+`logging_config`
+-------
+A `logging_config` block supports the following.
+
+* `application_log_level` - (Optional) Detail level of application logs.
+
+* `log_format` - (Required) Log format.
+
+* `log_group` - (Optional) CloudWatch log group where logs are sent.
+
+* `system_log_level` - (Optional) Detail level of Lambda platform logs.
 
 Attributes Reference
 --------------------

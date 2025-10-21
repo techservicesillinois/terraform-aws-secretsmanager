@@ -1,16 +1,17 @@
+variable "logging_config" {
+  type = object({
+    application_log_level = optional(string)
+    log_format            = string
+    log_group             = optional(string)
+    system_log_level      = optional(string)
+  })
+  description = "Configuration block for advanced logging settings"
+  default     = null
+}
+
 variable "name" {
   description = "Lambda function name"
   default     = "rotate-aes128-key-binary"
-}
-
-variable "policy" {
-  description = "Policy name"
-  default     = null
-}
-
-variable "role" {
-  description = "Role name"
-  default     = null
 }
 
 variable "runtime" {

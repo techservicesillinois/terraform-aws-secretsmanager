@@ -1,7 +1,7 @@
 output "qualified_arn" {
-  value = aws_lambda_function.default.qualified_arn
+  value = module.rotate.lambda_function.qualified_arn
 }
 
 output "version" {
-  value = aws_lambda_function.default.version
+  value = module.rotate.lambda_function.version
 }
