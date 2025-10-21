@@ -1,31 +1,14 @@
-resource "aws_iam_role" "default" {
-  name               = (var.role != null) ? var.role : var.name
-  assume_role_policy = data.aws_iam_policy_document.lambda.json
-}
-
-resource "aws_iam_role_policy_attachment" "lambda_basic" {
-  role       = aws_iam_role.default.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-}
-
-resource "aws_iam_role_policy_attachment" "default" {
-  role       = aws_iam_role.default.name
-  policy_arn = aws_iam_policy.default.arn
-}
-
-resource "aws_iam_policy" "default" {
-  name   = (var.policy != null) ? var.policy : var.name
-  path   = "/"
-  policy = data.aws_iam_policy_document.default.json
-}
-
+# Create and attach policy that grants the lambda function access
+# to SecretsManager.
+#
 # https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions.html
+
 data "aws_iam_policy_document" "default" {
   statement {
     condition {
       test     = "StringEquals"
       variable = "secretsmanager:resource/AllowRotationLambdaArn"
-      values   = [aws_lambda_function.default.arn]
+      values   = [module.rotate.lambda_function.arn]
     }
 
     actions = [
@@ -37,4 +20,16 @@ data "aws_iam_policy_document" "default" {
 
     resources = ["*"]
   }
+}
+
+resource "aws_iam_policy" "default" {
+  name   = var.name
+  path   = "/"
+  policy = data.aws_iam_policy_document.default.json
+  tags   = local.tags
+}
+
+resource "aws_iam_role_policy_attachment" "default" {
+  role       = module.rotate.role.name
+  policy_arn = aws_iam_policy.default.arn
 }
